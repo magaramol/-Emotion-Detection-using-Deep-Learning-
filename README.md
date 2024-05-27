@@ -1,5 +1,3 @@
-Here's a more structured and detailed README file for your CNN (Convolutional Neural Network) project repository:
-
 # Convolutional Neural Network (CNN) Project
 
 This project demonstrates the implementation of a Convolutional Neural Network (CNN) for image processing using deep learning techniques. CNNs are a class of deep learning models that are particularly effective for analyzing visual data.
@@ -112,6 +110,3 @@ This README provided an overview of Convolutional Neural Networks, including key
 - [Deep Learning with Python by François Chollet](https://www.manning.com/books/deep-learning-with-python)
 - [Convolutional Neural Networks (CNNs) explained](https://cs231n.github.io/convolutional-networks/)
 
----
-
-Feel free to customize the README further based on your specific needs and add any additional sections that may be relevant to your project.
