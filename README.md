@@ -11,7 +11,12 @@ This project demonstrates the implementation of a Convolutional Neural Network (
 5. [Edge & Depth Detection](#edge--depth-detection)
 6. [Padding in CNN](#padding-in-cnn)
 7. [Strides & Output Formula](#strides--output-formula)
-8. [Different Scenarios using Padding, Kernel, and Strides](#different-scenarios-using-padding-kernel-and-strides)
+8. [Different Scenarios Using Padding, Kernels, and Strides](#different-scenarios-using-padding-kernels-and-strides)
+9. [Pooling](#pooling)
+10. [CNN on Color Images](#cnn-on-color-images)
+11. [Implementation](#implementation)
+12. [Conclusion](#conclusion)
+13. [References](#references)
 
 ## Introduction
 
@@ -19,7 +24,7 @@ In this project, we explore how to use pixels to perform image analysis using ma
 
 ## Brief Introduction to CNN
 
-A Convolutional Neural Network (CNN) is a deep learning algorithm that can take an input image, assign importance (learnable weights and biases) to various aspects/objects in the image, and be able to differentiate one from the other. The pre-processing required in a CNN is much lower compared to other classification algorithms. While in primitive methods filters are hand-engineered, with enough training, CNNs can learn these filters/characteristics.
+A Convolutional Neural Network (CNN) is a deep learning algorithm that can take an input image, assign importance (learnable weights and biases) to various aspects/objects in the image, and differentiate one from the other. The pre-processing required in a CNN is much lower compared to other classification algorithms. While in primitive methods filters are hand-engineered, CNNs can learn these filters/characteristics with enough training.
 
 ## Kernels in CNN
 
@@ -47,11 +52,9 @@ Strides are the number of pixels by which we slide our filter matrix over the in
 
 \[ \text{Output\_height} = \frac{\text{Input\_height} - \text{kernel\_height}}{\text{stride}} + 1 \]
 
-\[ \text{Output\_width} = \frac{\text
+\[ \text{Output\_width} = \frac{\text{Input\_width} - \text{kernel\_width}}{\text{stride}} + 1 \]
 
-{Input\_width} - \text{kernel\_width}}{\text{stride}} + 1 \]
-
-## Different Scenarios using Padding, Kernel, and Strides
+## Different Scenarios Using Padding, Kernels, and Strides
 
 1. **Only Kernel:**
    - When no padding and a stride of 1 are used.
@@ -68,6 +71,42 @@ Strides are the number of pixels by which we slide our filter matrix over the in
 4. **Padding + Strides + Kernel:**
    - Both padding and strides are used.
    - Allows control over the spatial dimensions of the output more precisely.
+
+## Pooling
+
+Pooling is a down-sampling operation that reduces the dimensionality of the feature map. It retains the most important information while reducing computation.
+
+### Types of Pooling
+
+1. **Max Pooling:**
+   - Takes the maximum value from the feature map region covered by the kernel.
+   - Retains the most prominent features, making it effective for model learning.
+
+2. **Average Pooling:**
+   - Takes the average value from the feature map region covered by the kernel.
+   - Smoothens the feature map, which might be useful in some scenarios.
+
+3. **Min Pooling:**
+   - Takes the minimum value from the feature map region covered by the kernel.
+   - Useful in specific cases where the least prominent feature is of interest.
+
+## CNN on Color Images
+
+A color image has three channels: red, green, and blue (RGB).
+
+For example, an 8x8 RGB image can be represented as:
+- Red: 8x8x1
+- Green: 8x8x1
+- Blue: 8x8x1
+- Combined: 8x8x3
+
+When applying CNN on a color image:
+- Red channel: 6x6x1
+- Green channel: 6x6x1
+- Blue channel: 6x6x1
+- Combined: 6x6x3
+
+Using three 3x3x3 kernels, the operation will process all RGB channels.
 
 ## Implementation
 
@@ -103,7 +142,7 @@ model.summary()
 
 ## Conclusion
 
-This README provided an overview of Convolutional Neural Networks, including key concepts such as kernels, padding, strides, and how they impact the output dimensions. The implementation section provided a basic example of constructing a CNN using TensorFlow/Keras. For more details, refer to the full code in the repository.
+This README provided an overview of Convolutional Neural Networks, including key concepts such as kernels, padding, strides, pooling, and how they impact the output dimensions. The implementation section provided a basic example of constructing a CNN using TensorFlow/Keras. For more details, refer to the full code in the repository.
 
 ## References
 
